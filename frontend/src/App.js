@@ -1,24 +1,73 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { GoogleMap, LoadScript } from "@react-google-maps/api";
+
+const containerStyle = {
+  width: "100%",
+  height: "400px",
+};
+
+const center = {
+  lat: 28.7041, // Replace with your default latitude
+  lng: 77.1025, // Replace with your default longitude
+};
+
+function Home() {
+  return (
+    <div style={{ textAlign: "center", padding: "20px" }}>
+      <h1>Vehicle Accident Detection and Management System</h1>
+      <p>
+        Your safety is our priority. This system detects accidents in real-time
+        and provides necessary information to emergency contacts and services.
+      </p>
+      <h2>Real-Time Accident Location</h2>
+      <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+          {/* Add map markers or other features here */}
+        </GoogleMap>
+      </LoadScript>
+    </div>
+  );
+}
+
+function Dashboard() {
+  return <h2>Dashboard Page (Coming Soon)</h2>;
+}
+
+function VehicleRegistration() {
+  return <h2>Vehicle Registration Page (Coming Soon)</h2>;
+}
+
+function EmergencyContacts() {
+  return <h2>Emergency Contacts Page (Coming Soon)</h2>;
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav style={{ background: "#eee", padding: "10px" }}>
+        <ul style={{ display: "flex", listStyle: "none", gap: "20px", justifyContent: "center" }}>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/vehicle-registration">Vehicle Registration</Link>
+          </li>
+          <li>
+            <Link to="/emergency-contacts">Emergency Contacts</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/vehicle-registration" element={<VehicleRegistration />} />
+        <Route path="/emergency-contacts" element={<EmergencyContacts />} />
+      </Routes>
+    </Router>
   );
 }
 
