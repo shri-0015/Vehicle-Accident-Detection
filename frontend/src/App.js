@@ -21,7 +21,7 @@ function Home() {
         and provides necessary information to emergency contacts and services.
       </p>
       <h2>Real-Time Accident Location</h2>
-      <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+      <LoadScript googleMapsApiKey=AIzaSyBx7YRWMGMdBfpQXsSd6rriqTJAbDa90uE>
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
           {/* Add map markers or other features here */}
         </GoogleMap>
