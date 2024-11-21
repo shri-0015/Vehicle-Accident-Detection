@@ -8,8 +8,8 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 28.7041, // Replace with your default latitude
-  lng: 77.1025, // Replace with your default longitude
+  lat: 18.5808° N, // Replace with your default latitude
+  lng: 73.9787° E, // Replace with your default longitude
 };
 
 function Home() {
